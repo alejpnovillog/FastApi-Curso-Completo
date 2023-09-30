@@ -36,11 +36,7 @@ items = {"foo": {"name": "Fighters", "size": 6}, "bar": {"name": "Tenders", "siz
 # la definicion async def me permite procesar la operacion de ruta en forma async con el beneficio de poder recibir
 # mas peticiones concurrentes
 @app.put("/items/{item_id}")
-async def upsert_item(
-    item_id: str,
-    name: Union[str, None] = Body(default=None),
-    size: Union[int, None] = Body(default=None),
-):
+async def upsert_item( item_id: str, name: Union[str, None] = Body(default=None), size: Union[int, None] = Body(default=None), ):
     """
     Recibimos los parametros para actualizar la base de datos de items
 
