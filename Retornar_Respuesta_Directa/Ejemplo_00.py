@@ -52,7 +52,7 @@ def update_item( id: str, item: Item):
     """
     Recibimos los parametros para actualizar
 
-    **id**      es el id **obligatorio** tipo **str**
+    **id**      es el id **obligatorio** tipo **str** para actualizar una base de datos
 
     **item**    es el item de tipo **Item** (objeto de modelo)
 
