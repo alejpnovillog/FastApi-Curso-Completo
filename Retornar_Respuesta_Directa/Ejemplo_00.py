@@ -2,6 +2,9 @@
 # controlamos las librerias que importamos
 try:
 
+    #  Uvicorn es un servidor web ASGI (interfaz de puerta de enlace de servidor asíncrono)
+    import uvicorn
+
     # datetime es una clase del modulo datetime
     from datetime import datetime
 
@@ -58,3 +61,7 @@ def update_item( id: str, item: Item):
     """
     json_compatible_item_data = jsonable_encoder(item)          # convertimos el objeto item en formato JSON
     return JSONResponse(content=json_compatible_item_data)      # retornamos en contenido
+
+# Llamamos al servidor para que inicie
+if __name__ ==  "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
