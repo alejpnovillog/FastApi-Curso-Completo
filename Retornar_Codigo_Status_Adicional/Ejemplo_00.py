@@ -1,7 +1,7 @@
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # controlamos las librerias que importamos
 try:
-
+    #  Uvicorn es un servidor web ASGI (interfaz de puerta de enlace de servidor asíncrono)
     import uvicorn
 
     # Union indica que el valor puede tener dos alternativas
