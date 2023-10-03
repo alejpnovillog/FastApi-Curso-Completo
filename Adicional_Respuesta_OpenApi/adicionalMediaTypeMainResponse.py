@@ -5,11 +5,13 @@ try:
     #  Uvicorn es un servidor web ASGI (interfaz de puerta de enlace de servidor asíncrono)
     import uvicorn
 
+    from typing import Union
+
     # utilizamos la clase FastApi
     from fastapi import FastAPI
 
     # Es una subclase de Response que retorna informacion en formato JSON
-    from fastapi.responses import JSONResponse
+    from fastapi.responses import FileResponse
 
     # Definiciones de pydantic
     from pydantic import BaseModel
@@ -25,23 +27,27 @@ class Item(BaseModel):
     value: str
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# definimos el modelo menssage
-class Message(BaseModel):
-    message: str
-
-
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # creamos una instancia de la clase  FastApi
 app = FastAPI()
 
-
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # En esta operacion de ruta
-@app.get("/items/{item_id}", response_model=Item, responses={404: {"model": Message}})
-async def read_item(item_id: str):
-    if item_id == "foo":
+@app.get(
+    "/items/{item_id}",
+    response_model=Item,
+    responses={
+        200: {
+            "content": {"image/png": {}},
+            "description": "Return the JSON item or an image.",
+        }
+    },
+)
+async def read_item(item_id: str, img: Union[bool, None] = None):
+    if img:
+        return FileResponse("image.png", media_type="image/png")
+    else:
         return {"id": "foo", "value": "there goes my hero"}
-    return JSONResponse(status_code=404, content={"message": "Item not found"})
+
 
 # Llamamos al servidor para que inicie
 if __name__ ==  "__main__":
