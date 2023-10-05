@@ -21,8 +21,7 @@ app = FastAPI()
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # En esta operacion de ruta
-# debemos asignar a response_class la clase HTMLResponse lo cual asigna a content-type el valor
-#  "text/html" que sera visualizado en la docs de la url
+# el capitulo del curso https://www.youtube.com/watch?v=bqPJl7sxUs8&list=PL2PZw96yQChzll2RHgViiQ8eUvIQycAVl&index=216
 @app.get("/items/", response_class=HTMLResponse)
 async def read_items():
     """
