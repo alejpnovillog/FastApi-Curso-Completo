@@ -21,7 +21,9 @@ app = FastAPI()
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # En esta operacion de ruta
-# el capitulo del curso https://www.youtube.com/watch?v=bqPJl7sxUs8&list=PL2PZw96yQChzll2RHgViiQ8eUvIQycAVl&index=216
+# el capitulo del curso
+# https://www.youtube.com/watch?v=bqPJl7sxUs8&list=PL2PZw96yQChzll2RHgViiQ8eUvIQycAVl&index=216
+# https://www.youtube.com/watch?v=YYSURQ2RpRk&list=PL2PZw96yQChzll2RHgViiQ8eUvIQycAVl&index=217
 @app.get("/items/", response_class=HTMLResponse)
 async def read_items():
     """
