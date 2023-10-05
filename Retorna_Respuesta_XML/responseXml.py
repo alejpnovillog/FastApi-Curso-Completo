@@ -18,6 +18,11 @@ app = FastAPI()
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # En esta operacion de ruta
+# utilizamos la clase Response que tiene los siguientes parametros para utilizar
+# content = Es un str o un bytes. Sirve para devolver el contenido
+# status_code = Es el codigo que deseamos retornar es de tipo int
+# headers = Es un diccionario de tipo string
+# media_type = Es de tipo string indica que tipo de informacion vamos a devolver
 @app.get("/legacy/")
 def get_legacy_data():
     data = """<?xml version="1.0"?>
