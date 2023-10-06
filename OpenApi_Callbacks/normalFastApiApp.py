@@ -77,3 +77,7 @@ def create_invoice(invoice: Invoice, callback_url: Union[HttpUrl, None] = None):
 
     # Send the invoice, collect the money, send the notification (the callback)
     return {"msg": "Invoice received"}
+
+# Llamamos al servidor para que inicie
+if __name__ ==  "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
