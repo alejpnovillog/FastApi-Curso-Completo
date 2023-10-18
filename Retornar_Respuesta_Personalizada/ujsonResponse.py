@@ -21,6 +21,11 @@ app = FastAPI()
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # En esta operacion de ruta
+# en el caso de que el contenido a devolver sabemos que es un JSON solo debemos usar Response
+# pero de lo contrario debemos usar URJSONResponse
+# response_class es utilizado para determinar el content-type =  "aplication/json" y ademas sera
+# documentado al utilizar docs en la url del servidor
+# URJSONResponse esta solo en la libreria de FastAPI debemos instalar ORJSON con pip o con anaconda
 @app.get("/items/", response_class=UJSONResponse)
 async def read_items():
     return [{"item_id": "Foo"}]

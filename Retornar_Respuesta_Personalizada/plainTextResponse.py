@@ -12,7 +12,7 @@ try:
     from fastapi.responses import PlainTextResponse
 
 except Exception as e:
-    print(f'Falta algun modulo en Ejemplo_00 --> {e}')
+    print(f'Falta algun modulo en plainTextResponse --> {e}')
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # creamos una instancia de la clase  FastApi
@@ -21,6 +21,7 @@ app = FastAPI()
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # En esta operacion de ruta
+# la clase PlainTextResponse se utiliza para retornar texto plano o bytes
 @app.get("/", response_class=PlainTextResponse)
 async def main():
     return "Hello World"
