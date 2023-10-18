@@ -5,7 +5,7 @@ try:
     #  UVICORN ES UN SERVIDOR WEB ASGI (interfaz de puerta de enlace de servidor asíncrono)
     import uvicorn
 
-    # utilizamos la clase FastApi
+    # UTILIZAMOS LA CLASE FASTAPI
     from fastapi import FastAPI
 
     #
