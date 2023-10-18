@@ -8,20 +8,20 @@ try:
     # UTILIZAMOS LA CLASE FASTAPI
     from fastapi import FastAPI
 
-    #
+    # LIBRERIA DE MODELOS DE VALIDACION DE DATOS ENVIADOS O RECIBIDOS 
     from pydantic import BaseModel
 
 except Exception as e:
     print(f'Falta algun modulo en Ejemplo_00 --> {e}')
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# creamos una instancia de la clase  FastApi
+# CREAMOS UNA INSTANCIA DE LA CLASE FastApi
 app = FastAPI()
 
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# definimos un modelo de validacion de datos en el body
-# los atributos no requeridos son
+# DEFINIMOS UN MIDELO DE VALIDACION DE DATOS EN EL BODY
+# LOS ATRIBUTOS NO REQUERIDOS SON
 #   description, tax
 class Item(BaseModel):
     name: str
@@ -31,8 +31,8 @@ class Item(BaseModel):
 
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# definimos un modelo de validacion de datos en el body
-# los atributos no requeridos son
+# DEFINIMOS UN MIDELO DE VALIDACION DE DATOS EN EL BODY
+# LOS ATRIBUTOS NO REQUERIDOS SON
 #   full_name
 class User(BaseModel):
     username: str
@@ -40,7 +40,7 @@ class User(BaseModel):
 
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# En esta operacion de ruta
+# EN ESTA OPERACION DE RUTA
 @app.put("/items/{item_id}")
 async def update_item(item_id: int, item: Item, user: User):
     """
@@ -57,6 +57,6 @@ async def update_item(item_id: int, item: Item, user: User):
     return results
 
 
-# Llamamos al servidor para que inicie
+# LLAMAMOS AL SERVIDOR PARA QUE INICIE
 if __name__ ==  "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
