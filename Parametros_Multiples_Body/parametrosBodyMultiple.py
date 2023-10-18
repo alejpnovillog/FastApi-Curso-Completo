@@ -1,8 +1,8 @@
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# controlamos las librerias que importamos
+# CONTOLAMOS LAS LIBRERIAS QUE IMPORTAMOS
 try:
 
-    #  Uvicorn es un servidor web ASGI (interfaz de puerta de enlace de servidor asíncrono)
+    #  UVICORN ES UN SERVIDOR WEB ASGI (interfaz de puerta de enlace de servidor asíncrono)
     import uvicorn
 
     # utilizamos la clase FastApi
